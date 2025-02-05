@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up for X / X</title>
+    <link rel="icon" type="image/x-icon" href="assets/x.jpg">
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-box">
+        <img src="assets/x.jpg" alt="">
+        <h1>Create your account</h1>
+
+        <form id="signupForm">
+            <div class="container">
+                <div class="name">
+                    <input id="name" type="text" required>
+                    <div class="nameLabel">Name</div>
+                </div>
+            </div>
+
+            <div class="container2">
+                <div class="email">
+                    <input id="email" class="emailContainer" type="text" required>
+                    <div class="emailLabel">Email</div>
+                </div>
+            </div>
+
+            <h4>Date of birth</h4>
+            <h5>
+                This will not be shown publicly. Confirm your own age, even if this <br>
+                account is for a business, a pet, or something else.
+            </h5>
+
+            <div class="date-of-birth">
+                <div class="dropdown">
+                    <div class="select"><span class="selected">Month</span><div class="caret"></div></div>
+                    <ul class="menu">
+                        <li>January</li>
+                        <li>February</li>
+                        <li>March</li>
+                        <li>April</li>
+                        <li>May</li>
+                        <li>June</li>
+                        <li>July</li>
+                        <li>August</li>
+                        <li>September</li>
+                        <li>October</li>
+                        <li>November</li>
+                        <li>December</li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="select"><span class="selected">Day</span><div class="caret"></div></div>
+                    <ul class="menu">
+                        <script>document.write([...Array(31).keys()].map(i => `<li>${i + 1}</li>`).join(''));</script>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <div class="select"><span class="selected">Year</span><div class="caret"></div></div>
+                    <ul class="menu">
+                        <script>
+                            let currentYear = new Date().getFullYear();
+                            for (let i = currentYear; i >= 1900; i--) {
+                                document.write(`<li>${i}</li>`);
+                            }
+                        </script>
+                    </ul>
+                </div>
+            </div>
+            
+            <button class="next-button" type="submit">Next</button>
+        </form>
+    </div>
+
+    <script>
+        const dropdowns = document.querySelectorAll('.dropdown');
+
+        dropdowns.forEach(dropdown => {
+            const select = dropdown.querySelector('.select');
+            const caret = dropdown.querySelector('.caret');
+            const menu = dropdown.querySelector('.menu');
+            const options = menu.querySelectorAll('li');
+            const selected = dropdown.querySelector('.selected');
+
+            select.addEventListener('click', () => {
+                select.classList.toggle('select-clicked');
+                caret.classList.toggle('caret-rotate');
+                menu.classList.toggle('menu-open');
+            });
+
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    selected.innerText = option.innerText;
+                    select.classList.remove('select-clicked');
+                    caret.classList.remove('caret-rotate');
+                    menu.classList.remove('menu-open');
+                    options.forEach(option => option.classList.remove('active'));
+                    option.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAfHLAjv-SBR6RKFzhFOWJGQdNZtgwP6MI",
+            authDomain: "twitter-signup.firebaseapp.com",
+            databaseURL: "https://twitter-signup-default-rtdb.firebaseio.com",
+            projectId: "twitter-signup",
+            storageBucket: "twitter-signup.appspot.com",
+            messagingSenderId: "139239700726",
+            appId: "1:139239700726:web:46bba4524af7a1b130d4d7"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        document.getElementById('signupForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            
+            console.log("Submitted: ", name, email);
+            
+            const userRef = ref(db, 'users/');
+            push(userRef, { name, email })
+                .then(() => alert("NIGGA KA TANGINAMO HAHAHAHAHAHHAHAHA"))
+                .catch(error => alert("Error: " + error.message));
+        });
+    </script>
+</body>
+</html>

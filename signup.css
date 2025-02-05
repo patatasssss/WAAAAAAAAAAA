@@ -1,0 +1,331 @@
+body {
+    background-color: #242d34;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    color: #000;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.signup-box {
+    width: 565px;
+    height: 620px;
+    margin: auto;
+    background-color: black;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+.signup-box img {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: white;
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 55px;
+}
+
+
+.container {
+    width: 320px; /* Match button width */
+    margin-left: 57px; /* Align with buttons */
+    margin-top: 30px; /* Add spacing for visual balance */
+}
+
+.name {
+    position: relative;
+    width: 100%;
+    height: 60px; /* Match button height for uniformity */
+}
+
+input {
+    position: relative;
+    width: 420px;
+    height: 35px;
+    outline: none;
+    font-size: 17px;
+    padding: 10px 15px;
+    border: 1px solid #666; /* Default border color (gray) */
+    background: transparent;
+    color: white; /* Rounded corners to match buttons */
+    transition: all 0.2s ease;
+    text-align: left; /* Align text to the left */
+}
+
+.nameLabel {
+    position: absolute;
+    font-size: 16px;
+    color: #666; /* Default text color (gray) */
+    top: 45%; /* Start in the center of the input */
+    left: 15px; /* Align horizontally with input padding */
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents label from blocking input clicks */
+    transition: all 0.3s ease; /* Smooth transition for label movement */
+}
+
+input:focus,
+input:valid {
+    border: 1px solid #00a0ff; /* Blue border on focus or valid input */
+}
+
+input:focus + .nameLabel,
+input:valid + .nameLabel {
+    color: #00a0ff; /* Blue label text on focus or valid input */
+    top: 1px; /* Moves the label above the input */
+    font-size: 14px; /* Shrinks the label text size */
+    background: #000; /* Matches the background */
+    padding: 0 5px; /* Adds spacing to the label for better readability */
+}
+
+
+
+.container2 {
+    width: 320px; /* Match button width */
+    margin-left: 57px; /* Align with buttons */
+    margin-top: 20px; /* Add spacing for visual balance */
+}
+
+.email {
+    position: relative;
+    margin-top: 45px;
+    width: 100%;
+    height: 60px; /* Match button height for uniformity */
+}
+
+.emailContainer {
+    position: relative;
+    width: 420px;
+    height: 35px;
+    outline: none;
+    font-size: 17px;
+    padding: 10px 15px;
+    border: 1px solid #666; /* Default border color (gray) */
+    background: transparent;
+    color: white; /* Rounded corners to match buttons */
+    transition: all 0.2s ease;
+    text-align: left; /* Align text to the left */
+}
+
+.emailLabel {
+    position: absolute;
+    font-size: 16px;
+    color: #666; /* Default text color (gray) */
+    top: 45%; /* Start in the center of the input */
+    left: 15px; /* Align horizontally with input padding */
+    transform: translateY(-50%);
+    pointer-events: none; /* Prevents label from blocking input clicks */
+    transition: all 0.3s ease; /* Smooth transition for label movement */
+}
+
+input:focus,
+input:valid {
+    border: 1px solid #00a0ff; /* Blue border on focus or valid input */
+}
+
+input:focus + .emailLabel,
+input:valid + .emailLabel {
+    color: #00a0ff; /* Blue label text on focus or valid input */
+    top: 1px; /* Moves the label above the input */
+    font-size: 14px; /* Shrinks the label text size */
+    background: #000; /* Matches the background */
+    padding: 0 5px; /* Adds spacing to the label for better readability */
+}
+
+
+h4 {
+    color: whitesmoke;
+    text-align: left;
+    margin-top: 55px;
+    margin-left: 55px;
+}
+
+h5 {
+    color: gray;
+    text-align: left;
+    margin-top: 15px;
+    margin-left: 55px;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.monthDropdown {
+    position: relative;
+    margin-left: 53px;
+    width: 200px;
+}
+
+.select {
+    background-color: #1e1e1e;
+    color: #bdbdbd;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.select:hover {
+    border-color: #555;
+}
+
+.select-clicked {
+    border-color: #0078d7;
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #bdbdbd;
+    transition: transform 0.3s ease;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: black;
+    border: 1px #363a43 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    color: #9fa5b5;
+    position: absolute;
+    bottom: 3em; /* Position the menu above */
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    z-index: 1;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+
+.menu li {
+    padding: 8px 16px;
+    color: #bdbdbd;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+.active {
+    background-color: #0078d7;
+    color: #fff;
+}
+
+.next-button {
+    display: flex; /* Makes content inside the button alignable */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Optional: Center text and image horizontally */
+    width: 455px;
+    height: 45px;
+    border-radius: 50px;
+    color: black;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ececec;
+    border: none; /* Removes default button border */
+    cursor: pointer; /* Adds a pointer cursor on hover */
+    padding: 0 20px; /* Adds some space inside the button */
+    gap: 5px; /* Adds space between the image and text */
+    margin-left: 57px;
+    font-weight: bold;
+    margin-top: 35px;
+    transition: 0.2s;
+}
+
+.next-button:hover {
+    background-color: #d7dbdc;
+    opacity: 1;
+}
+
+.date-of-birth {
+    display: flex;
+    gap: 10px;
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
+.dropdown {
+    position: relative;
+    width: 145px;
+}
+
+.select {
+    background-color: #1e1e1e;
+    color: #bdbdbd;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: black;
+    border: 1px solid #363a43;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    color: #9fa5b5;
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    z-index: 1;
+    max-height: 300px;   /* Set maximum height */
+    overflow-y: auto;    /* Enable vertical scrolling */
+    scrollbar-width: thin; /* Firefox scrollbar width */
+}
+
+/* Customize scrollbar */
+.menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+.menu::-webkit-scrollbar-thumb {
+    background-color: #0078d7; 
+    border-radius: 4px;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+    background-color: #005bb5;
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
